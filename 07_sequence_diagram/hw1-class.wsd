@@ -1,0 +1,52 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam groupInheritance 2
+
+'7 Sequence Diagram
+'Homework 1-1
+'Class Diagram
+
+title 
+Hoemwork 2
+Restaurant Management Program
+Class Diagram
+
+end title
+
+class Customer {
+    +visit()
+    +leave()
+}
+class Restaurant {
+    cocktailLounge
+}
+
+abstract class Employee
+
+Employee <|-- Manager
+Employee <|--- Chef
+Employee <|--- Server
+Employee <|--- Assistant
+
+Customer -- Restaurant
+Customer - Manager
+
+class Manager {
+    +checkReservation()
+    +guideToTable()
+}
+
+class Chef {
+
+}
+
+class Server {
+
+}
+
+class Assistant {
+    +settingTable()
+    +clearTable()
+}
+
+@enduml
