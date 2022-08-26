@@ -1,0 +1,25 @@
+@startuml
+
+actor User
+
+participant A [
+    : A
+]
+participant myB [
+    myB : B
+]
+
+User -> A : doOne
+activate A
+
+A -> myB : doTwo
+activate myB
+deactivate myB
+
+A -> myB : doThre3
+activate myB
+deactivate myB
+
+deactivate A
+
+@enduml

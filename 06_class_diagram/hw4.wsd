@@ -1,0 +1,15 @@
+@startuml
+
+University "1" *-- "1..*" Faculty
+Employee "1" - "0..1" Faculty : leads >
+Faculty "1" *-- "1..*" Institute
+
+abstract class Employee
+Employee <|-- AdministrativeEmployee
+Employee <|-- ResearchAssociate
+ResearchAssociate -o Institute
+ResearchAssociate <|-- Lecturer
+ResearchAssociate "1..*" -- "0..*" Project
+(ResearchAssociate, Project) - Participation
+Course - Lecturer 
+@enduml

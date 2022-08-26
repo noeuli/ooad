@@ -1,0 +1,9 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Customer <|-- InternalCustomer
+Customer <|-- ExternalCustomer
+Order -- Product
+Order - Customer
+
+@enduml

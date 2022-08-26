@@ -1,0 +1,27 @@
+@startuml
+
+'comment
+' page 196
+
+participant Sale [
+    : Sale
+]
+
+participant Payment [
+    : Payment
+]
+
+activate Sale
+create Payment
+Sale --> Payment : create(cashTendered)
+
+Sale -> : ...
+
+Sale -> Payment : << destroy >>
+destroy Payment
+
+Sale -> : ...
+
+deactivate Sale
+
+@enduml

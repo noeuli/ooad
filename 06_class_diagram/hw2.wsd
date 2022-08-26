@@ -1,0 +1,19 @@
+@startuml
+
+CalculateForm "1" -- "1" Customer
+CalculateForm "1" -- "1" Employee
+Customer - Restaurant
+Restaurant *-- WaitingPlace
+Restaurant *-- CocktailLounge
+Restaurant o-- Table
+Restaurant - Employee
+Customer "1" -- "1" Clothes
+Customer "1" -- "1" Pay
+Employee <|-- Server
+Employee <|-- Assistant
+Employee <|-- Manager
+Employee <|-- Chef
+
+abstract class Employee
+
+@enduml

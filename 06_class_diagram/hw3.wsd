@@ -1,0 +1,20 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Customer "0..*" - "1" FlightReservationSystem : search
+FlightReservationSystem -- Bank
+
+class FlightReservationSystem {
+    -flightNumber
+    -flightDateTime
+    +search()
+    +reserve()
+    +purchase()
+    +takeSeat()
+}
+
+class Bank {
+    +verifyPayment()
+}
+
+@enduml
