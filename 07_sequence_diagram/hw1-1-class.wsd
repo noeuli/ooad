@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam groupInheritance 2
+
+'7 Sequence Diagram
+'Homework 1-1
+'Class Diagram
+
+title 
+Hoemwork 1-1
+Customer Item Order 
+Class Diagram
+
+end title
+
+abstract class Customer
+class ExternalCustomer
+class InternalCustomer
+class Item {
+    +order()
+}
+
+Customer <|-- ExternalCustomer
+Customer <|-- InternalCustomer
+Item - Customer : Order
+
+@enduml

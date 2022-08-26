@@ -1,0 +1,39 @@
+@startuml
+title 13 UML 2.0 Diagrams
+
+UML <|-- Structure 
+UML <|-- Behaviour
+
+skinparam groupInheritance 2
+
+Structure <|-- Class
+Structure <|--- "Composite Structure"
+Structure <|-- Component
+Structure <|--- Deployment
+Structure <|-- Object
+Structure <|--- Package
+
+Behaviour <|-- Activity
+Behaviour <|--- Interaction
+Behaviour <|-- "Use Case"
+Behaviour <|--- "State Machine"
+
+Interaction <|-- Sequence
+Interaction <|-- Communication
+Interaction <|-- "Interaction Overview"
+Interaction <|-- Timing
+
+abstract UML
+abstract Structure
+abstract Behaviour
+abstract Interaction
+
+class Class #pink ##[bold]red
+class "Use Case" #pink ##[bold]red
+class Sequence #pink ##[bold]red
+
+class Component #violet;line:purple;line.bold
+class Activity #violet ##[bold]purple
+class "State Machine" #violet ##[bold]purple
+
+@enduml

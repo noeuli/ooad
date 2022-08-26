@@ -3,6 +3,10 @@
 'comment
 ' page 196
 
+header UML 2.0
+footer Page %page% of %lastpage%
+title Sequence Diagram
+
 participant Sale [
     : Sale
 ]
@@ -15,13 +19,36 @@ activate Sale
 create Payment
 Sale --> Payment : create(cashTendered)
 
-Sale -> : ...
+Sale -> C : ...
 
 Sale -> Payment : << destroy >>
 destroy Payment
+note right
+the <<destroy>> stereotyped
+message, with the large
+X and short lifeline
+indicates explicit object
+destruction
+end note
 
-Sale -> : ...
+'Sale -> C : ...
 
 deactivate Sale
+
+newpage arrow display test
+
+A ->x B : A ->x B
+A -> B : A -> B
+A ->> B : A ->> B
+A -\ B : A -\\ B
+A -\\ B : A -\\\\ B
+A \\- B : A \\\\- B
+A \- B : A \\- B
+A //-- B : A //-- B
+
+A ->o B : A ->o B
+A o\\-- B : A o\\\\-- B
+A <-> B : A <-> B
+A <<->> B : A <<->> B
 
 @enduml

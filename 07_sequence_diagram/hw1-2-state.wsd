@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam groupInheritance 2
+
+'7 Sequence Diagram
+'Homework 1-2
+'Sequence Diagram
+
+title 
+Hoemwork 1-2
+Instructor Course Slot Room
+Sequence Diagram
+
+end title
+
+participant Instructor
+participant Student
+participant Course
+participant Slot
+participant Room
+
+Slot -> Room : allocate
+activate Slot
+Room --> Slot : allocated
+deactivate Slot
+
+Course -> Slot : allocate
+activate Course
+Slot --> Course : allocated
+deactivate Course
+
+Instructor -> Course : charge
+activate Instructor
+Course -> Instructor : charged
+deactivate Instructor
+
+Student -> Course : register
+activate Student
+Course --> Student : registered
+deactivate Student
+
+Student -> Slot : attend
+activate Student
+Instructor -> Slot : attend
+activate Slot
+activate Instructor
+Instructor -> Student : teaching
+Student --> Instructor : learning
+deactivate Student
+deactivate Instructor
+deactivate Slot
+
+@enduml

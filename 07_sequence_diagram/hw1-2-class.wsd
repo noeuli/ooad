@@ -1,0 +1,28 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam groupInheritance 2
+
+'7 Sequence Diagram
+'Homework 1-2
+'Class Diagram
+
+title 
+Hoemwork 1-2
+Instructor Course Slot Room
+Class Diagram
+
+end title
+
+Instructor "1" -- "1..*" Course
+Course "1" - "1" Slot
+Slot o-- Room
+
+class Instructor
+class Course
+class Room
+class Slot {
+    day
+    hour
+}
+
+@enduml
