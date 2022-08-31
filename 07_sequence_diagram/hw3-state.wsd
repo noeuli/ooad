@@ -1,0 +1,34 @@
+@startuml
+
+participant Customer
+participant Flight [
+    Flight System
+]
+participant Bank
+
+activate Customer
+Customer -> Flight : searchFlights()
+activate Flight
+Customer <-- Flight : results
+deactivate Flight
+
+Customer -> Flight : makeRservation()
+activate Flight
+Customer <-- Flight : ACK
+deactivate Flight
+
+Customer -> Flight : purchaseTicket()
+activate Flight
+
+Flight -> Bank : forwardRequest()
+activate Bank
+
+Flight <-- Bank : decision
+deactivate Bank
+
+Customer <-- Flight : confirmation
+deactivate Flight
+
+deactivate Customer
+
+@enduml

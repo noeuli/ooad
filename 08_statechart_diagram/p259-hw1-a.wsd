@@ -1,0 +1,61 @@
+@startuml
+
+[*] -> Time
+Time -> Alarm
+Alarm -> Timer
+Timer -down-> Anniversary
+Anniversary -left-> Stopwatch
+Stopwatch -left-> Lotto
+Lotto -up-> Time
+
+Time -> GlobalSetup
+Time <- GlobalSetup
+Alarm -down-> GlobalSetup
+Alarm <-up- GlobalSetup
+Timer -down-> GlobalSetup
+Timer <-up- GlobalSetup
+Anniversary -up-> GlobalSetup
+Anniversary <-down- GlobalSetup
+Stopwatch -up-> GlobalSetup
+Stopwatch <-down- GlobalSetup
+Lotto -up-> GlobalSetup
+Lotto <-down- GlobalSetup
+
+state Time {
+    state TimeView
+    state TimeSetup
+}
+
+state Alarm {
+    state AlarmView
+    state AlarmSetup
+}
+
+state Timer {
+    state TimerView
+    state TimerSetup
+}
+
+state GlobalSetup {
+    state GlobalSetupView
+    state GlobalSetting
+}
+
+state Anniversary {
+    state AnniversaryView
+    state AnniversarySetup
+}
+
+state Stopwatch {
+    state StopwatchView
+    state StopwatchSetup
+}
+
+state Lotto {
+    state LottoView
+    state LottoSetup
+}
+
+
+
+@enduml

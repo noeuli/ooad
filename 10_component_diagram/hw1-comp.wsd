@@ -1,0 +1,15 @@
+@startuml
+
+'p301
+'Component Diagram Homework
+
+title Component Diagram
+
+[Advert.class] as class
+[java.exe] as java
+[classes111.zip] as zip
+
+class ..> java : <<running>>
+class ..> zip : <<imports>>
+
+@enduml

@@ -37,11 +37,12 @@ class Manager {
 }
 
 class Chef {
-
+    +cookMeal()
 }
 
 class Server {
-
+    +takeOrder()
+    +recommendMenu()
 }
 
 class Assistant {

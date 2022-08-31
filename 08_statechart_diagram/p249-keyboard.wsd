@@ -1,0 +1,22 @@
+@startuml
+
+'p249
+
+title Keyboard (Orthogonal state)
+
+State Keyboard {
+    [*] -> default
+    default -> default : ANY_KEY
+    default --> caps_locked : CAPS_LOCK
+    default <-- caps_locked : CAPS_LOCK
+    caps_locked -> caps_locked : ANY_KEY
+    ||
+    [*] -> numbers
+    numbers -> numbers : NUM_KEY
+    numbers --> arrows : NUM_LOCK
+    numbers <-- arrows : NUM_LOCK
+    arrows -> arrows : NUM_KEY
+}
+
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+
+'Swimlanes
+
+title Online flight rservation system #2
+
+|Customer|
+start
+:search flights;
+
+|Flight System|
+:display flight found;
+
+|Customer|
+:make a reservation;
+
+|Flight System|
+:display ticket reserved;
+
+|Customer|
+:purchase request;
+
+|Flight System|
+:verify payments;
+
+|VAN|
+if (Valid payment) then (yes)
+    :Payments verified;
+else (no)
+    :Reject payment;
+    stop
+endif
+
+|Flight System|
+:Ticket purchased;
+
+|Customer|
+:Got it;
+:Select a seat;
+
+|Flight System|
+:Seat reserved;
+
+    |Customer|
+    stop
+
+@enduml

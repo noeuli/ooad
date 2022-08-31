@@ -13,6 +13,9 @@ Sequence Diagram
 
 end title
 
+actor InternalCustomer
+actor GeneralCustomer
+
 participant Customer
 participant Item
 

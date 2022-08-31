@@ -1,0 +1,25 @@
+@startuml
+
+'Normal
+
+title Online flight reservation system #1
+
+(*) --> "search flights"
+
+if "flight found?" then
+-down-> [yes] "make a reservation"
+--> "purchase a ticket"
+
+if "valid payment" then
+-down-> [yes] "select a seat"
+--> (*)
+else
+--> [no] cancel
+--> (*)
+endif
+
+else
+--> [no] (*)
+endif
+
+@enduml

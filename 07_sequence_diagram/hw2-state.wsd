@@ -1,0 +1,83 @@
+@startuml
+
+participant Customer 
+participant Manager
+participant WaitingPlace
+participant Table
+participant Server
+participant Chef
+participant Assistant
+
+Customer -> Manager : 1: takeoff()
+activate Manager
+
+alt sercerved
+    Manager -> Manager : 2: attend()
+    activate Manager
+    deactivate Manager
+
+    Manager -> Table : 3: seat()
+    activate Table
+    deactivate Table
+else
+    Manager -> WaitingPlace : 4 : waiting()
+    activate WaitingPlace
+    Manager <-- WaitingPlace : 5
+    deactivate WaitingPlace
+
+    Manager -> Manager : 6 : attend()
+    activate Manager
+    deactivate Manager
+
+    Manager -> Table : 7 : sit()
+    activate Table
+    deactivate Table
+end
+
+Manager -> Assistant : 8 : call()
+activate Assistant
+Table <- Assistant : 9 : setting()
+deactivate Assistant
+
+activate Table
+Table --> Assistant
+'Table --> Table 
+'note over Table : clean
+deactivate Table
+
+Manager -> Server : 10 : call()
+activate Server
+Manager <-- Server : 11 : call
+deactivate Server
+deactivate Manager
+
+Customer -> Server : 12 : order()
+activate Server
+
+Server -> Chef : 13 : deliver()
+activate Chef
+Chef -> Chef : 14 : cook()
+activate Chef
+deactivate Chef
+Server <-- Chef : 15 : deliver
+deactivate Chef
+
+Table <- Server : 16 : deliver()
+activate Table
+deactivate Server
+
+Customer <- Table : 17 : eating()
+activate Customer
+deactivate Table
+deactivate Customer
+
+Customer -> Server : 18 : tip()
+activate Server
+deactivate Server
+
+Customer -> Manager : 19 : calculate()
+activate Manager
+Customer <-- Manager : 20 : calculate
+deactivate Manager
+
+@enduml

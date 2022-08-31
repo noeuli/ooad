@@ -1,0 +1,27 @@
+@startuml
+
+' page 249
+title Vending Machine
+
+[*] --> Idle
+Idle : entry / amount := 0
+Idle : do / display(greeting)
+
+Idle -down-> Accumulate : insert(c: Coin)
+Accumulate : entry / amount := amount + c.amount
+Accumulate : do / display(amount)
+
+Accumulate <- Accumulate : insert(c: Coin)
+
+Accumulate -down-> Vend : select(i: Item) [amount is enough for i]
+Vend : entry / amount := amount - i.cost
+Vend : do / dispense(i); display(vending)
+Vend : do / return(amount)
+
+Vend --> MakeChange : [amount > 0]
+MakeChange : do / return(amount)
+
+Vend -up-> Idle : [else]
+MakeChange -up-> Idle
+
+@enduml
